@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        // Clear the text box when the page loads
+        window.onload = function() {
+            document.getElementById("text").value = "";
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #d4d6d8; 
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #73f36c; 
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            color: #050505;
+            font-size: 23px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        textarea {
+            width: 97%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Welcome to the Text Sentiment Explorer! Uncover the Emotions in Text 📊</h1>
+        <form method="POST" action="/predict">
+            <label for="text">Review:</label><br>
+            <textarea id="text" name="input_text" rows="5" cols="50" placeholder="Drop your text here and let's reveal its sentiment.........."></textarea><br><br>
+            <input type="submit" value="Predict Sentiment 🔍">
+        </form>
+        {% if clear_text %}
+        <script>
+            // Clear the text box after showing the sentiment
+            document.getElementById("text").value = "";
+        </script>
+        {% endif %}
+    </div>
+</body>
+</html>
